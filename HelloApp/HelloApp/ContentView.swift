@@ -1,61 +1,125 @@
-//
-//  ContentView.swift
-//  HelloApp
-//
-//  Created by Nazmul Haque Nahin on 2/5/24.
-//
-
 import SwiftUI
 
-struct ContentView: View {
-    // State variable to store the text of the new to-do item
-    @State private var newItemText = ""
+struct TodoItem: Identifiable {
+    var id = UUID()
+    var title: String
+}
+
+class TodoListViewModel: ObservableObject {
+    @Published var items: [TodoItem] = []
     
-    // Array to store the list of to-do items
-    @State private var todoItems: [String] = []
+    // Function to add a new item to the list
+    func addItem(title: String) {
+        let newItem = TodoItem(title: title)
+        items.append(newItem)
+    }
     
-    var body: some View {
-        VStack {
-            // Text field to input new to-do items
-            TextField("Enter a new to-do item", text: $newItemText)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-            
-            // Button to add new to-do item
-            Button(action: {
-                // Append the new item text to the array
-                todoItems.append(newItemText)
-                
-                // Clear the text field
-                newItemText = ""
-            }) {
-                Text("Add Item")
-                    .padding()
-                    .foregroundColor(.white)
-                    .background(Color.blue)
-                    .cornerRadius(8)
-            }
-            .padding()
-            
-            // List to display all to-do items
-            List {
-                ForEach(todoItems, id: \.self) { item in
-                    Text(item)
-                }
-            }
-            
-            // Spacer to push the content to the top
-            Spacer()
-        }
-        .padding()
+    // Function to delete an item from the list
+    func deleteItem(indexSet: IndexSet) {
+        items.remove(atOffsets: indexSet)
+    }
+    
+    // Function to update an item in the list
+    func updateItem(index: Int, newTitle: String) {
+        items[index].title = newTitle
     }
 }
 
-#if DEBUG
+struct ContentView: View {
+    @StateObject var viewModel = TodoListViewModel()
+    @State private var newItemTitle = ""
+    @State private var isShowingAddItemSheet = false
+    @State private var selectedItem: TodoItem? = nil
+    @State private var isEditing = false
+    
+    var body: some View {
+        NavigationView {
+            List {
+                ForEach(viewModel.items) { item in
+                    Text(item.title)
+                        .onTapGesture {
+                            selectedItem = item
+                            isEditing = true
+                        }
+                }
+                .onDelete(perform: deleteItem)
+            }
+            .listStyle(InsetGroupedListStyle())
+            .navigationTitle("To-Do List ")
+            .navigationBarItems(trailing:
+                Button(action: {
+                    isShowingAddItemSheet.toggle()
+                }) {
+                    Image(systemName: "plus")
+                }
+            )
+            .sheet(isPresented: $isShowingAddItemSheet) {
+                AddItemView(viewModel: viewModel, isPresented: $isShowingAddItemSheet)
+            }
+        }
+        .sheet(isPresented: $isEditing) {
+            EditItemView(viewModel: viewModel, item: $selectedItem, isPresented: $isEditing)
+        }
+    }
+    
+    func deleteItem(indexSet: IndexSet) {
+        viewModel.deleteItem(indexSet: indexSet)
+    }
+}
+
+struct AddItemView: View {
+    @ObservedObject var viewModel: TodoListViewModel
+    @Binding var isPresented: Bool
+    @State private var newItemTitle = ""
+    
+    var body: some View {
+        NavigationView {
+            Form {
+                Section(header: Text("New Item")) {
+                    TextField("Enter a new item", text: $newItemTitle)
+                }
+            }
+            .navigationTitle("Add Item")
+            .navigationBarItems(trailing:
+                Button("Save") {
+                    viewModel.addItem(title: newItemTitle)
+                    isPresented = false
+                }
+            )
+        }
+    }
+}
+
+struct EditItemView: View {
+    @ObservedObject var viewModel: TodoListViewModel
+    @Binding var item: TodoItem?
+    @Binding var isPresented: Bool
+    @State private var updatedTitle = ""
+    
+    var body: some View {
+        NavigationView {
+            Form {
+                Section(header: Text("Edit Item")) {
+                    TextField("Edit item", text: $updatedTitle)
+                }
+            }
+            .navigationTitle("Edit Item")
+            .navigationBarItems(trailing:
+                Button("Save") {
+                    guard let item = item, let index = viewModel.items.firstIndex(where: { $0.id == item.id }) else {
+                        isPresented = false
+                        return
+                    }
+                    viewModel.updateItem(index: index, newTitle: updatedTitle)
+                    isPresented = false
+                }
+            )
+        }
+    }
+}
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
-#endif
-
