@@ -14,7 +14,7 @@ struct PageName: Identifiable {
 
 let pages = [
     PageName(name: "First Screen"),
-    PageName(name: "Second Screen")
+    PageName(name: "Image List")
 ]
 
 
@@ -25,10 +25,17 @@ struct ContentView: View {
         VStack {
             NavigationView {
                 List(pages) { page in
-                    NavigationLink(
-                        destination: ScreenView(screenName: page.name )) {
-                            Text(page.name)
-                        }
+                    if page.name=="Image List"{
+                        NavigationLink(
+                            destination: ImageListView( )) {
+                                Text(page.name)
+                            }
+                    }else{
+                        NavigationLink(
+                            destination: ScreenView(screenName: page.name )) {
+                                Text(page.name)
+                            }
+                    }
                 }
                 .navigationTitle("Home")
             }
