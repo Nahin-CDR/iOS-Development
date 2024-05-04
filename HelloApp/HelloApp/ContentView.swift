@@ -70,7 +70,7 @@ struct ContentView: View {
 struct AddItemView: View {
     @ObservedObject var viewModel: TodoListViewModel
     @Binding var isPresented: Bool
-    @State private var newItemTitle = ""
+    @State private var newItemTitle = "ss"
     
     var body: some View {
         NavigationView {
@@ -120,6 +120,13 @@ struct EditItemView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView2()
+    }
+}
+
+
+struct ContentView2 : View {
+    var body: some View {
+        Text("Hello world")
     }
 }
