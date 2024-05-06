@@ -81,8 +81,8 @@ struct SinglePost: View {
     }
 }
 
-struct ContentView_Previews2: PreviewProvider {
-    static var previews: some View {
-        SinglePost()
-    }
-}
+//struct ContentView_Previews2: PreviewProvider {
+//    static var previews: some View {
+//        SinglePost()
+//    }
+//}
