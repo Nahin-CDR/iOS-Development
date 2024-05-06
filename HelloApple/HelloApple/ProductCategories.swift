@@ -6,7 +6,7 @@ struct ProductCategories: View {
     var body: some View {
         NavigationView {
             List(categories, id: \.self) { category in
-                NavigationLink(destination: Text("Category: \(category)")) {
+                NavigationLink(destination: ProductsByCategory(category: category)) {
                     Text(category)
                 }
             }

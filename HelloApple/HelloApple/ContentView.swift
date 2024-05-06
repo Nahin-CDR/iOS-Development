@@ -40,13 +40,47 @@ struct ContentView: View {
             }
             .navigationTitle("Home")
         }
-        
-      
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        SplashScreen()
+    }
+}
+
+
+
+// code for splash screen
+
+
+struct SplashScreen: View {
+    @State private var isActive = false
+    
+    var body: some View {
+        NavigationView {
+            ZStack {
+                // Background color or image
+                Color.blue.edgesIgnoringSafeArea(.all) // Change color as per your preference
+                
+                // Splash screen content
+                VStack {
+                    Text("Hello Nahin")
+                        .font(.title)
+                        .foregroundColor(.white)
+                        .padding(.bottom, 20)
+                }
+            }
+            .onAppear {
+                // Start a timer to navigate to the home screen after 2 seconds
+                Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { timer in
+                    isActive = true
+                }
+            }
+            // Navigate to home screen when isActive is true
+            .background(NavigationLink("", destination: ContentView(), isActive: $isActive))
+            // Hide navigation bar title
+            .navigationBarHidden(true) // Hide navigation bar
+        }
     }
 }
