@@ -7,39 +7,32 @@
 
 import SwiftUI
 
-struct PageName: Identifiable {
-    let id = UUID()
-    let name: String
-}
-
-let pages = [
-    PageName(name: "First Screen"),
-    PageName(name: "Image List")
-]
-
-
 
 struct ContentView: View {
- 
+
+    
     var body: some View {
-        VStack {
-            NavigationView {
-                List(pages) { page in
-                    if page.name=="Image List"{
-                        NavigationLink(
-                            destination: ImageListView( )) {
-                                Text(page.name)
-                            }
-                    }else{
-                        NavigationLink(
-                            destination: ScreenView(screenName: page.name )) {
-                                Text(page.name)
-                            }
+        NavigationView {
+            List {
+                NavigationLink(
+                    destination: PostListView()) { // Navigate to SinglePostView
+                        Text("Post List")
                     }
+                
+                NavigationLink(
+                    destination: ImageListView()) { // Navigate to SinglePostView
+                        Text("Image List")
+                    }
+                NavigationLink(destination: SinglePost()){
+                    Text("Single Post")
                 }
-                .navigationTitle("Home")
+                
             }
+            .navigationTitle("Home")
         }
+        
+        
+      
     }
 }
 
