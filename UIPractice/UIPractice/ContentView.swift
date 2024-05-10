@@ -1,79 +1,77 @@
-//
-//  ContentView.swift
-//  UIPractice
-//
-//  Created by Nazmul Haque Nahin on 9/5/24.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isAnimated = false
+    @State private var animateText = false
+    
     var body: some View {
-        ZStack{
-            // background color
+        ZStack {
+            // Background color
             Color(red: 0.09, green: 0.63, blue: 0.52)
-                .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/) 
-            // eta title bar shoho green kore fele
-            VStack{
-                
+                .edgesIgnoringSafeArea(.all)
+            
+            VStack {
                 Image("nahin")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 150.0,height: 150.0)
-                    .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                    .overlay(Circle().stroke(Color.white,lineWidth: 5))
+                    .frame(width: 150.0, height: 150.0)
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(Color.white, lineWidth: 5))
                 
-                // full name
-                Text("Nazmul Haque Nahin")
-                    .font(Font.custom("Pacifico-Regular", size: 35))
-                    .bold()
-                    .foregroundColor(.white)
+                // Full name
+                HStack(spacing: 0) {
+                    ForEach(0..<("Nazmul Haque Nahin".count), id: \.self) { index in
+                        Text(String("Nazmul Haque Nahin"["Nazmul Haque Nahin".index("Nazmul Haque Nahin".startIndex, offsetBy: index)]))
+                            .font(Font.custom("Pacifico-Regular", size: 35))
+                            .bold()
+                            .foregroundColor(.white)
+                            .offset(x: animateText ? 0 : 300)
+                            .animation(Animation.easeInOut(duration:     2.5).delay(0.1 * Double(index)))
+                    }
+                }
                 
-                // job title
+                // Job title
                 Text("Software Engineer")
                     .foregroundColor(.white)
                     .font(.system(size: 20))
                 
                 Divider()
                 
-                
+                // Contact info views
                 ContactInfo(text: "+88 0123456789", imageName: "phone.fill")
                 ContactInfo(text: "nahin.cdr@gmail.com", imageName: "envelope2.fill")
-                
-                
-                
-                
-                
             }
-            
-    
+        }
+        .onAppear {
+            withAnimation {
+                animateText = true
+            }
         }
     }
 }
 
+struct ContactInfo: View {
+    let text: String
+    let imageName: String
+    
+    var body: some View {
+        RoundedRectangle(cornerRadius: 25)
+            .frame(height: 50)
+            .foregroundColor(.white)
+            .overlay(
+                HStack {
+                    Image(systemName: imageName)
+                        .foregroundColor(.green)
+                    Text(text)
+                        .foregroundColor(.black)
+                }
+            )
+            .padding(.all)
+    }
+}
 
 
 
 #Preview {
     ContentView()
-}
-
-struct ContactInfo: View {
-    
-    let text : String
-    let imageName : String
-    
-    var body: some View {
-        RoundedRectangle(cornerRadius: 25)
-            .frame(height:50)
-            .foregroundColor(.white)
-            .overlay(
-                // hstack is Row in flutter
-                HStack{
-                    Image(systemName: imageName).foregroundColor(.green)
-                    Text(text).foregroundColor(.black)
-                }
-            )
-        .padding(.all)
-    }
 }
