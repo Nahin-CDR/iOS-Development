@@ -73,7 +73,7 @@ struct SplashScreen: View {
             }
             .onAppear {
                 // Start a timer to navigate to the home screen after 2 seconds
-                Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { timer in
+                Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { timer in
                     isActive = true
                 }
             }
