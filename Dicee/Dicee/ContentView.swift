@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var leftDice = 1
+    @State var rightDice = 1
+    
     var body: some View {
         ZStack{
             Image("background")
@@ -17,13 +21,15 @@ struct ContentView: View {
                 Image("diceeLogo")
                 Spacer()
                 HStack{
-                    DiceView(n: 1)
-                    DiceView(n: 4)
+                    DiceView(n: leftDice)
+                    DiceView(n: rightDice)
                 }
                 .padding(.horizontal)
                 Spacer()
                 AwesomeButton{
-                    print("Button tapped!")                }
+                    self.leftDice = Int.random(in: 1...6)
+                    self.rightDice = Int.random(in: 1...6)
+                }
             }.padding(EdgeInsets(top: 4, leading: 9, bottom: 8, trailing: 4))
         }
     }
