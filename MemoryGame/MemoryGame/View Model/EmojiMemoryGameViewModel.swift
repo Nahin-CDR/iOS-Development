@@ -23,8 +23,8 @@ class EmojiMemoryGame : ObservableObject {
     
     
     static func createMemoryGame() -> MemoryGame<String>{
-      return MemoryGame(numberOfPairsOfCards: 8){index in
-          emojis[index]
+        MemoryGame<String>(numberOfPairsOfCards: 10){pairIndex in
+          emojis[pairIndex]
       }
     }
     
@@ -39,7 +39,7 @@ class EmojiMemoryGame : ObservableObject {
     // MARK - Intent(s)
     
     func choose(_ card: MemoryGame<String>.Card){
-       // objectWillChange.send()
+        objectWillChange.send()
         model.choose(card)
     }
 }
