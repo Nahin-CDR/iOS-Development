@@ -7,26 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		998F64B72BF4ECCD006B2A91 /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F64B62BF4ECCD006B2A91 /* MemoryGame.swift */; };
-		998F64B92BF4F6C1006B2A91 /* EmojiMemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F64B82BF4F6C1006B2A91 /* EmojiMemoryGame.swift */; };
-		99C8FE3E2BF28E4400C340A9 /* ViewPracticeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C8FE3D2BF28E4400C340A9 /* ViewPracticeApp.swift */; };
-		99C8FE402BF28E4400C340A9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C8FE3F2BF28E4400C340A9 /* ContentView.swift */; };
-		99C8FE422BF28E4500C340A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99C8FE412BF28E4500C340A9 /* Assets.xcassets */; };
-		99C8FE452BF28E4500C340A9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99C8FE442BF28E4500C340A9 /* Preview Assets.xcassets */; };
+		99143C192BF5A31B002030CB /* MemoryGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99143C182BF5A31B002030CB /* MemoryGameApp.swift */; };
+		99143C1B2BF5A31B002030CB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99143C1A2BF5A31B002030CB /* ContentView.swift */; };
+		99143C1D2BF5A31D002030CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99143C1C2BF5A31D002030CB /* Assets.xcassets */; };
+		99143C202BF5A31D002030CB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99143C1F2BF5A31D002030CB /* Preview Assets.xcassets */; };
+		99143C2A2BF5A3F0002030CB /* MemoryGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99143C292BF5A3F0002030CB /* MemoryGameModel.swift */; };
+		99143C2C2BF5A4CE002030CB /* EmojiMemoryGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99143C2B2BF5A4CE002030CB /* EmojiMemoryGameViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		998F64B62BF4ECCD006B2A91 /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
-		998F64B82BF4F6C1006B2A91 /* EmojiMemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGame.swift; sourceTree = "<group>"; };
-		99C8FE3A2BF28E4400C340A9 /* ViewPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ViewPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		99C8FE3D2BF28E4400C340A9 /* ViewPracticeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPracticeApp.swift; sourceTree = "<group>"; };
-		99C8FE3F2BF28E4400C340A9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		99C8FE412BF28E4500C340A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		99C8FE442BF28E4500C340A9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		99143C152BF5A31B002030CB /* MemoryGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoryGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		99143C182BF5A31B002030CB /* MemoryGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameApp.swift; sourceTree = "<group>"; };
+		99143C1A2BF5A31B002030CB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		99143C1C2BF5A31D002030CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		99143C1F2BF5A31D002030CB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		99143C292BF5A3F0002030CB /* MemoryGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameModel.swift; sourceTree = "<group>"; };
+		99143C2B2BF5A4CE002030CB /* EmojiMemoryGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGameViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		99C8FE372BF28E4400C340A9 /* Frameworks */ = {
+		99143C122BF5A31B002030CB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -36,79 +36,103 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		99C8FE312BF28E4400C340A9 = {
+		99143C0C2BF5A31B002030CB = {
 			isa = PBXGroup;
 			children = (
-				99C8FE3C2BF28E4400C340A9 /* ViewPractice */,
-				99C8FE3B2BF28E4400C340A9 /* Products */,
+				99143C172BF5A31B002030CB /* MemoryGame */,
+				99143C162BF5A31B002030CB /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		99C8FE3B2BF28E4400C340A9 /* Products */ = {
+		99143C162BF5A31B002030CB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				99C8FE3A2BF28E4400C340A9 /* ViewPractice.app */,
+				99143C152BF5A31B002030CB /* MemoryGame.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		99C8FE3C2BF28E4400C340A9 /* ViewPractice */ = {
+		99143C172BF5A31B002030CB /* MemoryGame */ = {
 			isa = PBXGroup;
 			children = (
-				99C8FE3D2BF28E4400C340A9 /* ViewPracticeApp.swift */,
-				99C8FE3F2BF28E4400C340A9 /* ContentView.swift */,
-				998F64B62BF4ECCD006B2A91 /* MemoryGame.swift */,
-				998F64B82BF4F6C1006B2A91 /* EmojiMemoryGame.swift */,
-				99C8FE412BF28E4500C340A9 /* Assets.xcassets */,
-				99C8FE432BF28E4500C340A9 /* Preview Content */,
+				99143C282BF5A365002030CB /* Model */,
+				99143C272BF5A350002030CB /* View Model */,
+				99143C262BF5A344002030CB /* View */,
+				99143C182BF5A31B002030CB /* MemoryGameApp.swift */,
+				99143C1A2BF5A31B002030CB /* ContentView.swift */,
+				99143C1C2BF5A31D002030CB /* Assets.xcassets */,
+				99143C1E2BF5A31D002030CB /* Preview Content */,
 			);
-			path = ViewPractice;
+			path = MemoryGame;
 			sourceTree = "<group>";
 		};
-		99C8FE432BF28E4500C340A9 /* Preview Content */ = {
+		99143C1E2BF5A31D002030CB /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				99C8FE442BF28E4500C340A9 /* Preview Assets.xcassets */,
+				99143C1F2BF5A31D002030CB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		99143C262BF5A344002030CB /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		99143C272BF5A350002030CB /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				99143C2B2BF5A4CE002030CB /* EmojiMemoryGameViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		99143C282BF5A365002030CB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				99143C292BF5A3F0002030CB /* MemoryGameModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		99C8FE392BF28E4400C340A9 /* ViewPractice */ = {
+		99143C142BF5A31B002030CB /* MemoryGame */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 99C8FE482BF28E4500C340A9 /* Build configuration list for PBXNativeTarget "ViewPractice" */;
+			buildConfigurationList = 99143C232BF5A31D002030CB /* Build configuration list for PBXNativeTarget "MemoryGame" */;
 			buildPhases = (
-				99C8FE362BF28E4400C340A9 /* Sources */,
-				99C8FE372BF28E4400C340A9 /* Frameworks */,
-				99C8FE382BF28E4400C340A9 /* Resources */,
+				99143C112BF5A31B002030CB /* Sources */,
+				99143C122BF5A31B002030CB /* Frameworks */,
+				99143C132BF5A31B002030CB /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = ViewPractice;
-			productName = ViewPractice;
-			productReference = 99C8FE3A2BF28E4400C340A9 /* ViewPractice.app */;
+			name = MemoryGame;
+			productName = MemoryGame;
+			productReference = 99143C152BF5A31B002030CB /* MemoryGame.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		99C8FE322BF28E4400C340A9 /* Project object */ = {
+		99143C0D2BF5A31B002030CB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
-					99C8FE392BF28E4400C340A9 = {
+					99143C142BF5A31B002030CB = {
 						CreatedOnToolsVersion = 15.3;
 					};
 				};
 			};
-			buildConfigurationList = 99C8FE352BF28E4400C340A9 /* Build configuration list for PBXProject "ViewPractice" */;
+			buildConfigurationList = 99143C102BF5A31B002030CB /* Build configuration list for PBXProject "MemoryGame" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -116,44 +140,44 @@
 				en,
 				Base,
 			);
-			mainGroup = 99C8FE312BF28E4400C340A9;
-			productRefGroup = 99C8FE3B2BF28E4400C340A9 /* Products */;
+			mainGroup = 99143C0C2BF5A31B002030CB;
+			productRefGroup = 99143C162BF5A31B002030CB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				99C8FE392BF28E4400C340A9 /* ViewPractice */,
+				99143C142BF5A31B002030CB /* MemoryGame */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		99C8FE382BF28E4400C340A9 /* Resources */ = {
+		99143C132BF5A31B002030CB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99C8FE452BF28E4500C340A9 /* Preview Assets.xcassets in Resources */,
-				99C8FE422BF28E4500C340A9 /* Assets.xcassets in Resources */,
+				99143C202BF5A31D002030CB /* Preview Assets.xcassets in Resources */,
+				99143C1D2BF5A31D002030CB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		99C8FE362BF28E4400C340A9 /* Sources */ = {
+		99143C112BF5A31B002030CB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				998F64B72BF4ECCD006B2A91 /* MemoryGame.swift in Sources */,
-				99C8FE402BF28E4400C340A9 /* ContentView.swift in Sources */,
-				99C8FE3E2BF28E4400C340A9 /* ViewPracticeApp.swift in Sources */,
-				998F64B92BF4F6C1006B2A91 /* EmojiMemoryGame.swift in Sources */,
+				99143C2C2BF5A4CE002030CB /* EmojiMemoryGameViewModel.swift in Sources */,
+				99143C1B2BF5A31B002030CB /* ContentView.swift in Sources */,
+				99143C192BF5A31B002030CB /* MemoryGameApp.swift in Sources */,
+				99143C2A2BF5A3F0002030CB /* MemoryGameModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		99C8FE462BF28E4500C340A9 /* Debug */ = {
+		99143C212BF5A31D002030CB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -216,7 +240,7 @@
 			};
 			name = Debug;
 		};
-		99C8FE472BF28E4500C340A9 /* Release */ = {
+		99143C222BF5A31D002030CB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -272,14 +296,14 @@
 			};
 			name = Release;
 		};
-		99C8FE492BF28E4500C340A9 /* Debug */ = {
+		99143C242BF5A31D002030CB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"ViewPractice/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"MemoryGame/Preview Content\"";
 				DEVELOPMENT_TEAM = G92GCR2B8K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -294,7 +318,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = nahin.coder.ViewPractice;
+				PRODUCT_BUNDLE_IDENTIFIER = nahin.coder.MemoryGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -302,14 +326,14 @@
 			};
 			name = Debug;
 		};
-		99C8FE4A2BF28E4500C340A9 /* Release */ = {
+		99143C252BF5A31D002030CB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"ViewPractice/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"MemoryGame/Preview Content\"";
 				DEVELOPMENT_TEAM = G92GCR2B8K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -324,7 +348,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = nahin.coder.ViewPractice;
+				PRODUCT_BUNDLE_IDENTIFIER = nahin.coder.MemoryGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -335,25 +359,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		99C8FE352BF28E4400C340A9 /* Build configuration list for PBXProject "ViewPractice" */ = {
+		99143C102BF5A31B002030CB /* Build configuration list for PBXProject "MemoryGame" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				99C8FE462BF28E4500C340A9 /* Debug */,
-				99C8FE472BF28E4500C340A9 /* Release */,
+				99143C212BF5A31D002030CB /* Debug */,
+				99143C222BF5A31D002030CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		99C8FE482BF28E4500C340A9 /* Build configuration list for PBXNativeTarget "ViewPractice" */ = {
+		99143C232BF5A31D002030CB /* Build configuration list for PBXNativeTarget "MemoryGame" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				99C8FE492BF28E4500C340A9 /* Debug */,
-				99C8FE4A2BF28E4500C340A9 /* Release */,
+				99143C242BF5A31D002030CB /* Debug */,
+				99143C252BF5A31D002030CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 99C8FE322BF28E4400C340A9 /* Project object */;
+	rootObject = 99143C0D2BF5A31B002030CB /* Project object */;
 }
