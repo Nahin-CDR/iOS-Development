@@ -57,45 +57,23 @@ struct EmojiMemoryGameView: View {
 struct CardView : View {
     let currentCard : EmojiMemoryGame.Card
     
-//    init(_ givenCard: EmojiMemoryGame.Card) {
-//        self.card = givenCard
-//    }
-    
-    
     var body: some View {
         GeometryReader{ geometry in
             ZStack{
-                let shape = RoundedRectangle(
-                    cornerRadius: DrawingConstants.cornerRadius
-                )
-                if currentCard.isFaceUp{
-                    
-                    shape.fill().foregroundColor(.white)
-                    
-                    shape.strokeBorder(lineWidth: DrawingConstants.lineWidth)
-                    
-                    Pie(startAngle: Angle(degrees: 0-90), endAngle: Angle(degrees: 110-90))
-                        .padding(5)
-                    
-                    Text(
-                        currentCard.content
-                    ).font(
-                        Font.system(
-                            size:min(
-                                geometry.size.width,
-                                geometry.size.height
-                            )*DrawingConstants.fontScale
-                        )
+                Pie(startAngle: Angle(degrees: 0-90), endAngle: Angle(degrees: 110-90))
+                    .padding(5)
+                
+                Text(
+                    currentCard.content
+                ).font(
+                    Font.system(
+                        size:min(
+                            geometry.size.width,
+                            geometry.size.height
+                        )*DrawingConstants.fontScale
                     )
-                    
-                }else if currentCard.isMatched {
-                    shape.opacity(0)
-                }
-                else{
-                    shape.fill().foregroundColor(.gray)
-                }
-              
-            }
+                )
+            }.modifier(Cardify(isFaceUp: currentCard.isFaceUp))
         }
     }
     
