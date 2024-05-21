@@ -92,6 +92,3 @@ struct AspectVGrid<Item,ItemView> : View where ItemView:View , Item:Identifiable
     
 }
 
-//#Preview {
-//    AspectVGrid()
-//}
