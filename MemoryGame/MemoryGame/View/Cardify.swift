@@ -10,6 +10,7 @@ import SwiftUI
 struct Cardify: ViewModifier {
     
     var isFaceUp : Bool
+    var isMatched : Bool
     
     func body(content: Content) -> some View {
         ZStack{
@@ -22,10 +23,14 @@ struct Cardify: ViewModifier {
                 shape.strokeBorder(
                     lineWidth:DrawingConstants.lineWidth)
                 content
-            }else{
+            }else if isMatched{
+                content.opacity(0)
+               // shape.opacity(0)
+            }
+            else{
                 shape.fill()
             }
-            
+            content.opacity(isFaceUp ? 1 : 0)
         }
     }
     

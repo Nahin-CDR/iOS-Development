@@ -44,5 +44,15 @@ class EmojiMemoryGame : ObservableObject {
         objectWillChange.send()
         model.choose(card)
     }
+    
+    // code to shuffle the cards
+    
+    func shuffle(){
+        model.shuffle()
+    }
+    
+    
+    
+    
 }
 
