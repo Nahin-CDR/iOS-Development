@@ -18,11 +18,20 @@ struct EmojiMemoryGameView: View {
             items: game.card,
             aspectRatio: 2/3,
             content: { card in
-                CardView(currentCard: card)
-                .padding(4)
-                .aspectRatio(2/3,contentMode: .fit)
-                .onTapGesture {
-                    game.choose(card)
+                ZStack{
+                    if card.isMatched && !card.isFaceUp {
+                        Color.clear
+                    }else{
+                        CardView(currentCard: card)
+                        .padding(4)
+                        .transition(AnyTransition.scale)
+                        .aspectRatio(2/3,contentMode: .fit)
+                        .onTapGesture {
+                            withAnimation(.easeInOut(duration: 1)){
+                                game.choose(card)
+                            }
+                        }
+                    }
                 }
             }
         )
@@ -34,7 +43,9 @@ struct EmojiMemoryGameView: View {
     
     var shuffle : some View{
         Button("Shuffle"){
-            game.shuffle()
+            withAnimation(.easeInOut(duration: 1)){
+                game.shuffle()
+            }
         }
     }
     
@@ -47,20 +58,6 @@ struct EmojiMemoryGameView: View {
             gameBody
             shuffle
         }
- //       ScrollView{
-//            LazyVGrid(columns:[GridItem(.adaptive(minimum:100))]){
-//                ForEach(game.card){ card in
-//                    CardView(
-//                        currentCard: card
-//                    )
-//                    .aspectRatio(2/3,contentMode: .fit)
-//                    .onTapGesture {
-//                        game.choose(card)
-//                    }
-//                }
-//                
-//            }
- //       }
         
     }
 }
@@ -85,18 +82,13 @@ struct CardView : View {
                 Text(currentCard.content)
                 .rotationEffect(Angle.degrees(currentCard.isMatched ? 360 : 0))
                 .animation(
-                    Animation.easeInOut.speed(0.5)
-                        .repeatForever(autoreverses: false),
+                    Animation.easeInOut.speed(0.8)
+                    .repeatForever(autoreverses: false),
                     value: UUID()
                 )
-                // new syntax of .animation
-                .font(
-                    Font.system(
-                        size:DrawingConstants.fontSize
-                    )
-                )
+                .font(Font.system(size:DrawingConstants.fontSize))
                 .scaleEffect(scale(thatFit: geometry.size))
-            }.modifier(Cardify(isFaceUp: currentCard.isFaceUp,isMatched: currentCard.isMatched))
+            }.modifier(Cardify(isFaceUp: currentCard.isFaceUp))
         }
     }
     
@@ -122,9 +114,9 @@ struct ContentView_Previews : PreviewProvider{
     static var previews: some View{
         
         let game = EmojiMemoryGame()
-       // game.choose(game.card.first!)
+        //game.choose(game.card.first!)
         return EmojiMemoryGameView(game: game)
-    //        .preferredColorScheme(.light)
+        //.preferredColorScheme(.light)
     }
 }
 
