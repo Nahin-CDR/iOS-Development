@@ -39,7 +39,7 @@ struct EmojiMemoryGameView: View {
             insertion: AnyTransition.move(
                 edge: .bottom).combined(with: .scale),
             removal: .opacity
-        ).animation(Animation.smooth(duration: 1))
+        ).animation(Animation.smooth(duration: 5)) // eta holo appearance er jonno
     }
     
     var gameBody: some View {
@@ -69,13 +69,8 @@ struct EmojiMemoryGameView: View {
         ZStack {
             ForEach(game.cards.filter(isUndealt)) { card in
                 CardView(currentCard: card)
-                    .matchedGeometryEffect(id: card.id, in: dealingNamespace)
-                    .transition(
-                        AnyTransition.asymmetric(
-                            insertion: .opacity,
-                            removal: .identity
-                        )
-                    )
+                   .transition(AnyTransition.asymmetric(insertion: .opacity,removal: .scale)
+                )
             }
         }
         .frame(
@@ -84,7 +79,12 @@ struct EmojiMemoryGameView: View {
         )
         .foregroundColor(CardConstants.color)
         .onTapGesture {
-            dealCards()
+            // dealCards() | separate function
+            withAnimation(.easeInOut(duration: 5)){
+                for card in game.cards{
+                    deal(card )
+                }
+            }
         }
     }
     
