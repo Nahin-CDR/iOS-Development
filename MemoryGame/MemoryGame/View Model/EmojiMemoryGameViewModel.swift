@@ -32,7 +32,7 @@ class EmojiMemoryGame : ObservableObject {
     
     @Published private var model = createMemoryGame()
     
-    var card : Array<Card>{
+    var cards : Array<Card>{
         return model.cards
     }
     
