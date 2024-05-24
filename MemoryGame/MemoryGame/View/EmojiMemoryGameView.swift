@@ -1,26 +1,12 @@
-//
-//  EmojiMemoryGameView.swift
-//  Memorize
-//
-//  Created by Ilya Zavidny on 13.09.2021.
-//
-
 import SwiftUI
 
 struct EmojiMemoryGameView: View {
     @ObservedObject var game: EmojiMemoryGame
     
-    var body: some View {
-        ZStack(alignment: .bottom) {
-            gameBody
-            .padding(.horizontal)
-            deckBody.padding()
-        }
-    }
-    
     @State private var dealt = Set<Int>()
-    
     @Namespace private var dealingNamespace
+    @State private var timer: Timer?
+    @State private var remainingTime = 60
     
     private func deal(_ card: EmojiMemoryGame.Card) {
         dealt.insert(card.id)
@@ -42,10 +28,28 @@ struct EmojiMemoryGameView: View {
         -Double(game.cards.firstIndex { $0.id == card.id } ?? 0)
     }
     
+    private func resetTimer(){
+        remainingTime = 60
+        timer?.invalidate()
+    }
+    private func startTimer() {
+        remainingTime = 60
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            if remainingTime > 0 {
+                remainingTime -= 1
+            } else {
+                timer?.invalidate()
+            }
+        }
+    }
+    
     var gameBody: some View {
         VStack {
             Text("Memorize !").font(.largeTitle)
-           
+            Text("Time remaining: \(remainingTime)")
+                .font(.system(size: 14))
+                .foregroundColor(remainingTime > 10 ? .white : .red)
             AspectVGrid(items: game.cards, aspectRatio: 2/3, content: { card in
                 if isUndealt(card) || (card.isMatched && !card.isFaceUp) {
                     Color.clear
@@ -59,17 +63,14 @@ struct EmojiMemoryGameView: View {
                             withAnimation {
                                 game.choose(card)
                             }
-                            
                         }
                 }
-                
             })
             .foregroundColor(.brown)
             HStack {
                 restart
                 Spacer()
                 shuffle
-                
             }
         }
     }
@@ -82,15 +83,15 @@ struct EmojiMemoryGameView: View {
         }
     }
     
-    var restart : some View{
-        Button("Restart"){
-            withAnimation{
+    var restart: some View {
+        Button("Restart") {
+            withAnimation {
                 dealt = []
                 game.restart()
+                resetTimer()
             }
         }
     }
-    
     
     var deckBody: some View {
         ZStack {
@@ -101,17 +102,19 @@ struct EmojiMemoryGameView: View {
                     .transition(AnyTransition.asymmetric(insertion: .opacity, removal: .identity))
             }
         }
-        .frame(width: CardConstants.undealtWidth, height: CardConstants.undealtHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        .frame(width: CardConstants.undealtWidth, height: CardConstants.undealtHeight, alignment: .center)
         .foregroundColor(.brown)
         .onTapGesture {
             for card in game.cards {
                 withAnimation(dealAnimation(for: card)) {
                     deal(card)
+                    startTimer()
                 }
             }
-            
         }
     }
+    
+ 
     
     private struct CardConstants {
         static let color = Color.red
@@ -121,6 +124,15 @@ struct EmojiMemoryGameView: View {
         static let undealtHeight: CGFloat = 90
         static let undealtWidth = undealtHeight * aspectRatio
     }
+    
+    var body: some View {
+        VStack {
+            gameBody
+                .padding(.horizontal)
+            deckBody
+                .padding()
+        }
+    }
 }
 
 struct CardView: View {
@@ -128,37 +140,23 @@ struct CardView: View {
     
     @State private var animatedBonusRemaining: Double = 0
     var body: some View {
-        GeometryReader(content: { geometry in
+        GeometryReader { geometry in
             ZStack {
-             // Group {
-                  Pie(
+                Pie(
                     startAngle: Angle(degrees: 0-90),
                     endAngle: Angle(degrees: 110-90)
-                  )
+                )
                 .opacity(0.5)
                 .padding(5)
-//                    if card.isConsumingBonusTime {
-//                        Pie(startAngle: Angle(degrees: -90), endAngle: Angle(degrees: (1-animatedBonusRemaining)*360 - 90))
-//                            .onAppear {
-//                                animatedBonusRemaining = card.bonusRemaining
-//                                withAnimation(.linear(duration: card.bonusTimeRemaining)) {
-//                                    animatedBonusRemaining = 0
-//                                }
-//                            }
-//                    } else {
-//                        Pie(startAngle: Angle(degrees: -90), endAngle: Angle(degrees: (1-card.bonusRemaining)*360 - 90))
-//                    }
-             //  }
-//                .padding(5).opacity(0.5)
                 Text(card.content)
                     .rotationEffect(Angle.degrees(card.isMatched ? 360 : 0))
                     .font(Font.system(size: DrawingConstants.fontSize))
                     .scaleEffect(scale(thatFits: geometry.size))
             }
             .cardify(isFaceUp: card.isFaceUp)
-        })
+        }
     }
-        
+    
     private func scale(thatFits size: CGSize) -> CGFloat {
         min(size.width, size.height) / (DrawingConstants.fontSize / DrawingConstants.emojiScale)
     }
@@ -169,21 +167,6 @@ struct CardView: View {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let game = EmojiMemoryGame()
@@ -191,14 +174,3 @@ struct ContentView_Previews: PreviewProvider {
             .preferredColorScheme(.dark)
     }
 }
-
-
-
-
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let game = EmojiMemoryGame()
-//         EmojiMemoryGameView(game: game).preferredColorScheme(.light)
-//
-//    }
-//}
