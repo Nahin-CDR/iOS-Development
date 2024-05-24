@@ -45,7 +45,7 @@ struct EmojiMemoryGameView: View {
     var gameBody: some View {
         VStack {
             Text("Memorize !").font(.largeTitle)
-            Text("Score: ").font(.title3).padding(.vertical)
+           
             AspectVGrid(items: game.cards, aspectRatio: 2/3, content: { card in
                 if isUndealt(card) || (card.isMatched && !card.isFaceUp) {
                     Color.clear
@@ -66,8 +66,10 @@ struct EmojiMemoryGameView: View {
             })
             .foregroundColor(.brown)
             HStack {
+                restart
                 Spacer()
                 shuffle
+                
             }
         }
     }
@@ -79,6 +81,16 @@ struct EmojiMemoryGameView: View {
             }
         }
     }
+    
+    var restart : some View{
+        Button("Restart"){
+            withAnimation{
+                dealt = []
+                game.restart()
+            }
+        }
+    }
+    
     
     var deckBody: some View {
         ZStack {
