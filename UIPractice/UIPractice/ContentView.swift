@@ -4,7 +4,14 @@ struct ContentView: View {
     @State private var isAnimated = false
     @State private var animateText = false
     
-    var body: some View {
+    
+    var body : some View{
+        ToastView()
+        //Generics()
+    }
+    
+    
+    var body1: some View {
         ZStack {
             // Background color
             Color(red: 0.09, green: 0.63, blue: 0.52)

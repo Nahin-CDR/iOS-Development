@@ -15,6 +15,8 @@ struct EmojiMemoryGameView: View {
     @State private var timer: Timer?
     @State private var remainingTime = 60
     
+    @State private var toast: Toast? = nil
+    
     private func deal(_ card: EmojiMemoryGame.Card) {
         dealt.insert(card.id)
     }
@@ -56,7 +58,7 @@ struct EmojiMemoryGameView: View {
             Text("Memorize !").font(.largeTitle)
             Text("Time remaining: \(remainingTime)")
                 .font(.system(size: 14))
-                .foregroundColor(remainingTime > 10 ? .white : .red)
+                .foregroundColor(remainingTime > 10 ? .green : .red)
             AspectVGrid(items: game.cards, aspectRatio: 2/3, content: { card in
                 if isUndealt(card) || (card.isMatched && !card.isFaceUp) {
                     Color.clear
@@ -67,8 +69,14 @@ struct EmojiMemoryGameView: View {
                         .transition(AnyTransition.asymmetric(insertion: .identity, removal: .opacity))
                         .zIndex(zIndex(of: card))
                         .onTapGesture {
-                            withAnimation {
-                                game.choose(card)
+                            // when time is over , player won't be able to flip any card
+                            if(remainingTime<=55){
+                                toast = Toast(style: .success, message: "Time is up", width: 160)
+                                //add code to show toast message
+                            }else{
+                                withAnimation {
+                                    game.choose(card)
+                                }
                             }
                         }
                 }
@@ -80,6 +88,7 @@ struct EmojiMemoryGameView: View {
                 shuffle
             }
         }
+        .toastView(toast: $toast)
     }
     
     var shuffle: some View {
@@ -139,6 +148,7 @@ struct EmojiMemoryGameView: View {
             deckBody
                 .padding()
         }
+        
     }
 }
 

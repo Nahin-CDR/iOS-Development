@@ -13,7 +13,10 @@
 		99143C202BF5A31D002030CB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99143C1F2BF5A31D002030CB /* Preview Assets.xcassets */; };
 		99143C2A2BF5A3F0002030CB /* MemoryGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99143C292BF5A3F0002030CB /* MemoryGameModel.swift */; };
 		99143C2C2BF5A4CE002030CB /* EmojiMemoryGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99143C2B2BF5A4CE002030CB /* EmojiMemoryGameViewModel.swift */; };
+		9941CD582C0380C400707095 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9941CD572C0380C400707095 /* ToastView.swift */; };
+		9941CD5A2C03864A00707095 /* ToastModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9941CD592C03864A00707095 /* ToastModifier.swift */; };
 		99532DDD2BF999D5004B0E82 /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99532DDC2BF999D5004B0E82 /* AspectVGrid.swift */; };
+		997001642C0EA49A00B5E1DD /* ToastStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997001632C0EA49A00B5E1DD /* ToastStructure.swift */; };
 		998E3DF52BFCD5FD00F84F99 /* Cardify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998E3DF42BFCD5FD00F84F99 /* Cardify.swift */; };
 		99AFDEE22BFB7A5100ED1276 /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AFDEE12BFB7A5100ED1276 /* Pie.swift */; };
 /* End PBXBuildFile section */
@@ -26,7 +29,10 @@
 		99143C1F2BF5A31D002030CB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		99143C292BF5A3F0002030CB /* MemoryGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameModel.swift; sourceTree = "<group>"; };
 		99143C2B2BF5A4CE002030CB /* EmojiMemoryGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGameViewModel.swift; sourceTree = "<group>"; };
+		9941CD572C0380C400707095 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		9941CD592C03864A00707095 /* ToastModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastModifier.swift; sourceTree = "<group>"; };
 		99532DDC2BF999D5004B0E82 /* AspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
+		997001632C0EA49A00B5E1DD /* ToastStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastStructure.swift; sourceTree = "<group>"; };
 		998E3DF42BFCD5FD00F84F99 /* Cardify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardify.swift; sourceTree = "<group>"; };
 		99AFDEE12BFB7A5100ED1276 /* Pie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,6 +67,7 @@
 		99143C172BF5A31B002030CB /* MemoryGame */ = {
 			isa = PBXGroup;
 			children = (
+				9941CD562C03809800707095 /* Utility */,
 				99143C282BF5A365002030CB /* Model */,
 				99143C272BF5A350002030CB /* View Model */,
 				99143C262BF5A344002030CB /* View */,
@@ -104,6 +111,16 @@
 				99143C292BF5A3F0002030CB /* MemoryGameModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		9941CD562C03809800707095 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				9941CD572C0380C400707095 /* ToastView.swift */,
+				9941CD592C03864A00707095 /* ToastModifier.swift */,
+				997001632C0EA49A00B5E1DD /* ToastStructure.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,11 +193,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9941CD582C0380C400707095 /* ToastView.swift in Sources */,
+				9941CD5A2C03864A00707095 /* ToastModifier.swift in Sources */,
 				99AFDEE22BFB7A5100ED1276 /* Pie.swift in Sources */,
 				998E3DF52BFCD5FD00F84F99 /* Cardify.swift in Sources */,
 				99143C2C2BF5A4CE002030CB /* EmojiMemoryGameViewModel.swift in Sources */,
 				99143C1B2BF5A31B002030CB /* EmojiMemoryGameView.swift in Sources */,
 				99143C192BF5A31B002030CB /* MemoryGameApp.swift in Sources */,
+				997001642C0EA49A00B5E1DD /* ToastStructure.swift in Sources */,
 				99532DDD2BF999D5004B0E82 /* AspectVGrid.swift in Sources */,
 				99143C2A2BF5A3F0002030CB /* MemoryGameModel.swift in Sources */,
 			);
