@@ -25,7 +25,7 @@ class EmojiMemoryGame : ObservableObject {
     
     
     static func createMemoryGame() -> MemoryGame<String>{
-        MemoryGame<String>(numberOfPairsOfCards: 10){pairIndex in
+        MemoryGame<String>(numberOfPairsOfCards: 5){pairIndex in
           emojis[pairIndex]
       }
     }
@@ -42,7 +42,10 @@ class EmojiMemoryGame : ObservableObject {
     
     func choose(_ card: Card){
         objectWillChange.send()
-        model.choose(card)
+        let res:Bool = model.choose(card)
+        if res == true{
+            increaseCounter()
+        }
     }
     
     // code to shuffle the cards
@@ -53,10 +56,20 @@ class EmojiMemoryGame : ObservableObject {
     
     func restart(){
         model = EmojiMemoryGame.createMemoryGame()
-        
+        resetSuccessCounter()
     }
     
-    
+   @Published var successCounter: Int = 0
+   
+   func increaseCounter(){
+       successCounter += 1
+       objectWillChange.send()
+   }
+   func resetSuccessCounter(){
+       successCounter = 0
+       objectWillChange.send()
+   }
+   
     
 }
 

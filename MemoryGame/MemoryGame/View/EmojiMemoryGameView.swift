@@ -13,7 +13,7 @@ struct EmojiMemoryGameView: View {
     @State private var dealt = Set<Int>()
     @Namespace private var dealingNamespace
     @State private var timer: Timer?
-    @State private var remainingTime = 60
+    @State private var remainingTime = 20
     
     @State private var toast: Toast? = nil
     
@@ -38,11 +38,11 @@ struct EmojiMemoryGameView: View {
     }
     
     private func resetTimer(){
-        remainingTime = 60
+        remainingTime = 20
         timer?.invalidate()
     }
     private func startTimer() {
-        remainingTime = 60
+        remainingTime = 20
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             if remainingTime > 0 {
@@ -55,10 +55,15 @@ struct EmojiMemoryGameView: View {
     
     var gameBody: some View {
         VStack {
-            Text("Memorize !").font(.largeTitle)
+            HStack{
+                Text("Memorize !").font(.largeTitle)
+                Text("Score : \(game.successCounter)")
+                    .foregroundColor(.green)
+            }
             Text("Time remaining: \(remainingTime)")
                 .font(.system(size: 14))
-                .foregroundColor(remainingTime > 10 ? .green : .red)
+                .foregroundColor(remainingTime > 5 ? .green : .red)
+            
             AspectVGrid(items: game.cards, aspectRatio: 2/3, content: { card in
                 if isUndealt(card) || (card.isMatched && !card.isFaceUp) {
                     Color.clear
@@ -70,7 +75,7 @@ struct EmojiMemoryGameView: View {
                         .zIndex(zIndex(of: card))
                         .onTapGesture {
                             // when time is over , player won't be able to flip any card
-                            if(remainingTime<=55){
+                            if(remainingTime<=0){
                                 toast = Toast(style: .success, message: "Time is up", width: 160)
                                 //add code to show toast message
                             }else{
