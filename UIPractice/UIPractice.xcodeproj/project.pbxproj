@@ -19,6 +19,7 @@
 		99AC204F2C16019100BD7103 /* example2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AC204E2C16019100BD7103 /* example2.swift */; };
 		99B09FCD2BEDDFF2001AF936 /* Pacifico-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 99B09FCC2BEDDFF2001AF936 /* Pacifico-Regular.ttf */; };
 		99DB35A82C1446B800E494CE /* example1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DB35A72C1446B800E494CE /* example1.swift */; };
+		99F28FD82C19EF7E00257FB9 /* shapeExample1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F28FD72C19EF7E00257FB9 /* shapeExample1.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		99B09FCC2BEDDFF2001AF936 /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pacifico-Regular.ttf"; sourceTree = "<group>"; };
 		99B09FEE2BEE378E001AF936 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		99DB35A72C1446B800E494CE /* example1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = example1.swift; sourceTree = "<group>"; };
+		99F28FD72C19EF7E00257FB9 /* shapeExample1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shapeExample1.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 		99411B6E2C04FE5E00B472B4 /* Practice */ = {
 			isa = PBXGroup;
 			children = (
+				99F28FD42C19EEEB00257FB9 /* Shape */,
 				9940A1CD2C18469500FE70B5 /* Cast */,
 				99DB35A62C14468400E494CE /* ViewModifier */,
 				99DB35A52C1445D200E494CE /* Toast */,
@@ -139,6 +142,14 @@
 				99AC204E2C16019100BD7103 /* example2.swift */,
 			);
 			path = ViewModifier;
+			sourceTree = "<group>";
+		};
+		99F28FD42C19EEEB00257FB9 /* Shape */ = {
+			isa = PBXGroup;
+			children = (
+				99F28FD72C19EF7E00257FB9 /* shapeExample1.swift */,
+			);
+			path = Shape;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +231,7 @@
 				9940A1CF2C1846B700FE70B5 /* example.swift in Sources */,
 				99AC204F2C16019100BD7103 /* example2.swift in Sources */,
 				992A24C32BED296B003E25F2 /* ContentView.swift in Sources */,
+				99F28FD82C19EF7E00257FB9 /* shapeExample1.swift in Sources */,
 				992A24C12BED296B003E25F2 /* UIPracticeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

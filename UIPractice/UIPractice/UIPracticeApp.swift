@@ -11,6 +11,7 @@ import SwiftUI
 struct UIPracticeApp: App {
     var body: some Scene {
         WindowGroup {
+           // Example1()
             ContentView3()
             //MyBody()
             //ContentView()

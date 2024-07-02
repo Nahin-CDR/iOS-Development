@@ -9,7 +9,19 @@ import SwiftUI
 struct Example1 : View{
     var body : some View{
         Text("Simple View")
-            .CustomStyle2()
+            .modifier(RotatedTextModifier(angle:65))
+    }
+}
+
+
+
+struct BorderModifiers: ViewModifier{
+    var color: Color
+    var width: CGFloat
+    
+    func body(content: Content) -> some View {
+        content
+            .border(color,width: width)
     }
 }
 
@@ -25,6 +37,22 @@ struct CustomTextView : ViewModifier{
             
     }
 }
+
+
+
+
+struct RotatedTextModifier: ViewModifier{
+    var angle: Double
+    
+    func body(content : Content) -> some View {
+        content
+            .rotationEffect(.degrees(angle))
+    }
+}
+
+
+
+
 
 
 struct CustomTextView2 : ViewModifier{

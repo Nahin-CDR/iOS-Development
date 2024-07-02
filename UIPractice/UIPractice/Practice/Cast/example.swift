@@ -1,10 +1,18 @@
 //
 //  example.swift
 //  UIPractice
-//
-//  Created by Nazmul Haque Nahin on 11/6/24.
-//
+///
+//  Created by Nazmul Haque Nahin on 30/6/24.
+///
 
+/*https://be-music.s3.us-west-1.amazonaws.com/ffceadba-eb7b-4392-8d66-f40f75d61b54/04251e11-0ecd-11ee-8bcc-179c0fb7189f.mp4
+ */
+
+
+
+/*
+ http://commondatastorage.googleapis.com/gtv-videos-bucket/big_buck_bunny_1080p.mp4
+ */
 import SwiftUI
 
 struct ContentView3: View {
