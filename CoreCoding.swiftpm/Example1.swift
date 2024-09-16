@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView2 : View {
+struct ContentView1 : View {
     
     @State private var counter = 1
     
@@ -58,6 +58,6 @@ struct ContentView2 : View {
 
 struct ContentView_Previews : PreviewProvider{
     static var previews: some View{
-        ContentView2()
+        ContentView1()
     }
 }
